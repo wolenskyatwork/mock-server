@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const programInfo = require('./json_responses/program_info');
+const metaData = require('./json_responses/meta_data');
 
 const app = express();
 
@@ -14,6 +15,10 @@ app.get('/', function (req, res) {
 
 app.get('/programInfo', function (req, res) {
   res.send(programInfo.programInfoJson);
+});
+
+app.get('/defaultMetadata', function (req, res) {
+  res.send(metaData.defaultMetadataJson);
 });
 
 app.listen(1512, function () {
